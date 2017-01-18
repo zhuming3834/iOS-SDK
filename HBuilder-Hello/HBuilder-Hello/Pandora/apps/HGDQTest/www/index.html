@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title>
+	    <script src="js/mui.min.js"></script>
+	    <link href="css/mui.min.css" rel="stylesheet"/>
+	    <style>
+	    		body{
+	    			text-align: center;
+	    		}
+	    		h2{
+	    			margin: 20px auto;
+	    		}
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">H5+ iOS插件</h1>
+		</header>
+		<div class="mui-content">
+			<h2>这是一个H5的页面</h2>
+			<span>从原始页面接收到的数据:</span>
+			<span id="reciveData"></span>
+			<div>
+				<button type="button">跳转</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/hgdqplugin.js" ></script>
+	<script type="text/javascript" charset="utf-8">
+	     mui.init();
+	     var reciveData = null;
+	     mui.plusReady(function(){
+	     	reciveData = document.getElementById('reciveData');
+	     })
+	     // 按钮点击事件
+	     document.querySelector('button').addEventListener('tap',function(){
+	     	// H5界面向原生界面传值
+            var params = {
+                name: "H5+ iOS平台插件开发",
+                des: "http://hudqstudio.online",
+                title: "返回"
+            };
+            plus.HGDQPlugin.hgdqGotoNative(params,function(data){
+                reciveData.innerText = data.name;
+            }, function(data) {});
+	     })
+	 </script>
+</html>

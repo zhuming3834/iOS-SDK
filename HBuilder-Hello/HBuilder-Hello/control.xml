@@ -1,0 +1,6 @@
+<HBuilder version="1.9.9.28340">
+	<!--应用节点-->
+	<apps>
+		<app appid='HGDQTest' appver='1.0.0'/>
+	</apps>
+</HBuilder> 
